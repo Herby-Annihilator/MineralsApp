@@ -8,25 +8,27 @@ using System.Threading.Tasks;
 
 namespace MineralsApp.DataAccessLayer.Entities
 {
-    [Table("territory")]
-    public class Territory
+    [Table("researcher")]
+    public class Researcher
     {
-        [Required]
+        [Column("researcher_id")]
         [Key]
-        [Column("territory_id")]
+        [Required]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [Column("name")]
+        [Column("first_name")]
         [Required]
         [MaxLength(100)]
-        public string Name { get; set; }
+        public string FirstName { get; set; }
 
-        [ForeignKey("country_id")]
-        [Column("country_id")]
-        public int? CountryId { get; set; }
-        public Country? Country { get; set; }
+        [Column("last_name")]
+        [Required]
+        [MaxLength(100)]
+        public string LastName { get; set; }
 
-        public ICollection<Field> Fields { get; set; }
+        [Column("patronymic")]
+        [MaxLength(100)]
+        public string Patronymic { get; set; }
     }
 }

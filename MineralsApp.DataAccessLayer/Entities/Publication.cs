@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace MineralsApp.DataAccessLayer.Entities
 {
-    [Table("territory")]
-    public class Territory
+    [Table("publication")]
+    public class Publication
     {
-        [Required]
+        [Column("publication_id")]
         [Key]
-        [Column("territory_id")]
+        [Required]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
@@ -22,11 +22,8 @@ namespace MineralsApp.DataAccessLayer.Entities
         [MaxLength(100)]
         public string Name { get; set; }
 
-        [ForeignKey("country_id")]
-        [Column("country_id")]
-        public int? CountryId { get; set; }
-        public Country? Country { get; set; }
-
-        public ICollection<Field> Fields { get; set; }
+        [Column("creation_date")]
+        [Required]
+        public DateTime CreationDate { get; set; }
     }
 }
