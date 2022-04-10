@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MineralsApp.Tests", "Minera
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MineralsApp.Client", "MineralsApp.Client\MineralsApp.Client.csproj", "{02DD7239-AF82-4893-AE9C-CC73029E7D1C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MineralsApp.ConsoleClient", "MineralsApp.ConsoleClient\MineralsApp.ConsoleClient.csproj", "{F017F0D8-234A-414B-AE62-1335742F81DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{02DD7239-AF82-4893-AE9C-CC73029E7D1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02DD7239-AF82-4893-AE9C-CC73029E7D1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02DD7239-AF82-4893-AE9C-CC73029E7D1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F017F0D8-234A-414B-AE62-1335742F81DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F017F0D8-234A-414B-AE62-1335742F81DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F017F0D8-234A-414B-AE62-1335742F81DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F017F0D8-234A-414B-AE62-1335742F81DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
