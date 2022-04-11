@@ -27,5 +27,7 @@ namespace MineralsApp.DataAccessLayer.Entities
         public int? TerritoryId { get; set; }
 
         public Territory? Territory { get; set; }
+
+        public ICollection<FieldHasMineral> FieldHasMinerals { get; set; }
     }
 }

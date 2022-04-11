@@ -30,5 +30,11 @@ namespace MineralsApp.DataAccessLayer.Entities
         [Column("path_to_image")]
         [MaxLength(500)]
         public string PathToImage { get; set; }
+
+        public ICollection<PublicationDescribesMineral> PublicationDescribesMineral { get; set; }
+
+        public ICollection<OreHasMineral> OreHasMinerals { get; set; }
+
+        public ICollection<FieldHasMineral> FieldHasMinerals { get; set; }
     }
 }

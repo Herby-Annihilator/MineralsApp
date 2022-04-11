@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MineralsApp.DataAccessLayer.DbContexts;
+using System;
 
 namespace MineralsApp.ConsoleClient
 {
@@ -6,7 +7,9 @@ namespace MineralsApp.ConsoleClient
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            MySqlDbContext db = new MySqlDbContext();
+            db.Database.EnsureDeleted();
+            db.Database.EnsureCreated();
         }
     }
 }

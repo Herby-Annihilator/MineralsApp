@@ -8,20 +8,17 @@ using System.Threading.Tasks;
 
 namespace MineralsApp.DataAccessLayer.Entities
 {
-    [Table("ore")]
-    public class Ore
+    [Table("ore_has_mineral")]
+    public class OreHasMineral
     {
         [Column("ore_id")]
-        [Key]
         [Required]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int OreId { get; set; }
+        public Ore Ore { get; set; }
 
-        [Column("name")]
+        [Column("mineral_id")]
         [Required]
-        [MaxLength(300)]
-        public string Name { get; set; }
-
-        public ICollection<OreHasMineral> OreHasMinerals { get; set; }
+        public int MineralId { get; set; }
+        public Mineral Mineral { get; set; }
     }
 }

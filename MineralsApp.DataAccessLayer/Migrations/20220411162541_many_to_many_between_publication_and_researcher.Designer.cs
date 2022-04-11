@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MineralsApp.DataAccessLayer.DbContexts;
 
 namespace MineralsApp.DataAccessLayer.Migrations
 {
     [DbContext(typeof(MySqlDbContext))]
-    partial class MySqlDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220411162541_many_to_many_between_publication_and_researcher")]
+    partial class many_to_many_between_publication_and_researcher
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -59,23 +61,6 @@ namespace MineralsApp.DataAccessLayer.Migrations
                     b.ToTable("field");
                 });
 
-            modelBuilder.Entity("MineralsApp.DataAccessLayer.Entities.FieldHasMineral", b =>
-                {
-                    b.Property<int>("MineralId")
-                        .HasColumnType("int")
-                        .HasColumnName("mineral_id");
-
-                    b.Property<int>("FieldId")
-                        .HasColumnType("int")
-                        .HasColumnName("field_id");
-
-                    b.HasKey("MineralId", "FieldId");
-
-                    b.HasIndex("FieldId");
-
-                    b.ToTable("field_has_mineral");
-                });
-
             modelBuilder.Entity("MineralsApp.DataAccessLayer.Entities.Mineral", b =>
                 {
                     b.Property<int>("Id")
@@ -121,23 +106,6 @@ namespace MineralsApp.DataAccessLayer.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ore");
-                });
-
-            modelBuilder.Entity("MineralsApp.DataAccessLayer.Entities.OreHasMineral", b =>
-                {
-                    b.Property<int>("OreId")
-                        .HasColumnType("int")
-                        .HasColumnName("ore_id");
-
-                    b.Property<int>("MineralId")
-                        .HasColumnType("int")
-                        .HasColumnName("mineral_id");
-
-                    b.HasKey("OreId", "MineralId");
-
-                    b.HasIndex("MineralId");
-
-                    b.ToTable("ore_has_mineral");
                 });
 
             modelBuilder.Entity("MineralsApp.DataAccessLayer.Entities.Publication", b =>
@@ -258,44 +226,6 @@ namespace MineralsApp.DataAccessLayer.Migrations
                     b.Navigation("Territory");
                 });
 
-            modelBuilder.Entity("MineralsApp.DataAccessLayer.Entities.FieldHasMineral", b =>
-                {
-                    b.HasOne("MineralsApp.DataAccessLayer.Entities.Field", "Field")
-                        .WithMany("FieldHasMinerals")
-                        .HasForeignKey("FieldId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MineralsApp.DataAccessLayer.Entities.Mineral", "Mineral")
-                        .WithMany("FieldHasMinerals")
-                        .HasForeignKey("MineralId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Field");
-
-                    b.Navigation("Mineral");
-                });
-
-            modelBuilder.Entity("MineralsApp.DataAccessLayer.Entities.OreHasMineral", b =>
-                {
-                    b.HasOne("MineralsApp.DataAccessLayer.Entities.Mineral", "Mineral")
-                        .WithMany("OreHasMinerals")
-                        .HasForeignKey("MineralId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MineralsApp.DataAccessLayer.Entities.Ore", "Ore")
-                        .WithMany("OreHasMinerals")
-                        .HasForeignKey("OreId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Mineral");
-
-                    b.Navigation("Ore");
-                });
-
             modelBuilder.Entity("MineralsApp.DataAccessLayer.Entities.PublicationDescribesMineral", b =>
                 {
                     b.HasOne("MineralsApp.DataAccessLayer.Entities.Mineral", "Mineral")
@@ -348,23 +278,9 @@ namespace MineralsApp.DataAccessLayer.Migrations
                     b.Navigation("Territories");
                 });
 
-            modelBuilder.Entity("MineralsApp.DataAccessLayer.Entities.Field", b =>
-                {
-                    b.Navigation("FieldHasMinerals");
-                });
-
             modelBuilder.Entity("MineralsApp.DataAccessLayer.Entities.Mineral", b =>
                 {
-                    b.Navigation("FieldHasMinerals");
-
-                    b.Navigation("OreHasMinerals");
-
                     b.Navigation("PublicationDescribesMineral");
-                });
-
-            modelBuilder.Entity("MineralsApp.DataAccessLayer.Entities.Ore", b =>
-                {
-                    b.Navigation("OreHasMinerals");
                 });
 
             modelBuilder.Entity("MineralsApp.DataAccessLayer.Entities.Publication", b =>

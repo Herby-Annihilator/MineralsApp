@@ -30,5 +30,7 @@ namespace MineralsApp.DataAccessLayer.Entities
         [Column("patronymic")]
         [MaxLength(100)]
         public string Patronymic { get; set; }
+
+        public ICollection<ResearcherHasPublication> ResearcherHasPublication { get; set; }
     }
 }

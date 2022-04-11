@@ -25,5 +25,9 @@ namespace MineralsApp.DataAccessLayer.Entities
         [Column("creation_date")]
         [Required]
         public DateTime CreationDate { get; set; }
+
+        public ICollection<PublicationDescribesMineral> PublicationDescribesMineral { get; set; }
+
+        public ICollection<ResearcherHasPublication> ResearcherHasPublication { get; set; }
     }
 }
