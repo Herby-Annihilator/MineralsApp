@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MineralsApp.DataAccessLayer.Entities.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 namespace MineralsApp.DataAccessLayer.Entities
 {
     [Table("mineral")]
-    public class Mineral
+    public class Mineral : IEntity
     {
         [Column("mineral_id")]
         [Required]

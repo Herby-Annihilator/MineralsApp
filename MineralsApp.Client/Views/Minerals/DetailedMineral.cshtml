@@ -1,0 +1,248 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/minerals.css">
+    <title>Минералы</title>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-dark background">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="../images/photo_3.jpg" width="90" height="100" alt="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../html/index.html">Главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="../html/minerals.html">Минералы</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Исследователи</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Публикации</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">О сайте</a>
+                        </li>
+                    </ul>
+                    <button class="btn btn-outline-light">Войти</button>
+                </div>
+            </div>
+        </nav>
+        <div class="container offer">
+            <div class="row">
+                <div class="col-12">
+                    <ol class="breadcrumb" style="--bs-breadcrumb-divider: '>';">
+                        <li class="breadcrumb-item"><a href="#">Главная</a></li>
+                        <li class="breadcrumb-item" aria-current="page">Минералы</li>
+                      </ol>
+                </div>
+                <div class="col-lg-6">
+                    <h1>Наименование минерала</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <img src="../images/main_mineral.png" class="image" alt="Минерал">
+                </div>
+                <div class="col-lg-7">
+                    <h2>Наименование минерала</h2>
+                    <p class="mineral_text">
+                        Горный хрусталь-разновидность кварца. Кварц представляет собой химическое соединение, состоящее из диоксида кремния (SiO2 ). Это самый распространенный минерал, обнаруженный на поверхности Земли, и его уникальные свойства делают его одним из самых полезных природных веществ. 
+                        Минералы подразделяют на имеющие кристаллическую структуру, аморфные и минералы, имеющие внешнюю форму кристаллов, но находящиеся в аморфном состоянии (метамиктные минералы). Горная порода может состоять из нескольких породообразующих минералов разного вида (полиминеральная порода), или из единственного породообразующего минерала (мономинеральная порода). В литературе применяется также словосочетание «минеральный материал».
+                    </p>
+                </div>
+            </div>
+            <hr class="line_style">
+        </div>
+    </section>
+
+    <section class="searchers">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Был открыт исследователями</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card">
+                        <img src="../images/user_icon.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h3 class="card-title">Фамилия Имя Отчество</h3>
+                            <p class="card-text">Готовые примеры и крутые идеи визитных карточек для любой профессии и сферы бизнеса Советы экспертов по оформлению визиток.</p>
+                            <a href="#" class="btn btn-primary stretched-link">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card">
+                        <img src="../images/user_icon.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h3 class="card-title">Фамилия Имя Отчество</h3>
+                            <p class="card-text">Готовые примеры и крутые идеи визитных карточек для любой профессии и сферы бизнеса Советы экспертов по оформлению визиток.</p>
+                            <a href="#" class="btn btn-primary stretched-link">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card">
+                        <img src="../images/user_icon.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h3 class="card-title">Фамилия Имя Отчество</h3>
+                            <p class="card-text">Готовые примеры и крутые идеи визитных карточек для любой профессии и сферы бизнеса Советы экспертов по оформлению визиток.</p>
+                            <a href="#" class="btn btn-primary stretched-link">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="line_style">
+        </div>
+    </section>
+
+    <section class="publish">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Описан в публикациях</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="../images/publish_2.jpeg" class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h2 class="card-title">Публикация</h2>
+                                    <p class="card-text">Американская транснациональная корпорация в составе холдинга Alphabet, инвестирующая в интернет-поиск, облачные вычисления </p>
+                                    <a href="#" class="stretched-link">18.02.2022</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="../images/publish_2.jpeg" class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h2 class="card-title">Публикация</h2>
+                                    <p class="card-text">Американская транснациональная корпорация в составе холдинга Alphabet, инвестирующая в интернет-поиск, облачные вычисления </p>
+                                    <a href="#" class="stretched-link">18.02.2022</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="../images/publish_2.jpeg" class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h2 class="card-title">Публикация</h2>
+                                    <p class="card-text">Американская транснациональная корпорация в составе холдинга Alphabet, инвестирующая в интернет-поиск, облачные вычисления </p>
+                                    <a href="#" class="stretched-link">18.02.2022</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="line_style">
+        </div>
+    </section>
+
+    <section class="gallery">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Галерея</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">
+                    <img src="../images/mineral_3.png" class="image" alt="Миенрал 1">
+                </div>
+                <div class="col-lg-3">
+                    <img src="../images/mineral_2.png" class="image" alt="Миенрал 1">
+                </div>
+                <div class="col-lg-3">
+                    <img src="../images/mineral.png" class="image" alt="Миенрал 1">
+                </div>
+                <div class="col-lg-3">
+                    <img src="../images/mineral_2.png" class="image" alt="Миенрал 1">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <a href="#" class="see_all">Смотреть все</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <a href="../html/index.html">Главная</a>
+                    <a href="../html/minerals.html">Минералы</a>
+                    <a href="#">Исследователи</a>
+                </div>
+                <div class="col">
+                    <a href="#">Публикации</a>
+                    <a href="#">О сайте</a>
+                    <a href="#">Связаться с нами</a>
+                </div>
+                <div class="col">
+                    <a href="#">Зарегистрироваться</a>
+                    <a href="#">Помочь в разработке</a>
+                    <a href="#">Нашли ошибку?</a>
+                </div>
+                <div class="col">
+                    <a href="../html/admin.html">Войти</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>2022-2022. RukinStudio. Все права защищены</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+body{
+    margin: auto, 0px;
+    padding: 0px;
+    display: block;
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1, h2, h3, h4, h5, h6{
+    padding: 0px;
+    margin: 0px;
+}
+
+p{
+    margin: 0px;
+    padding: 0px;
+}
+
+li{
+    list-style-type: none;
+}
+
+ul{
+    padding: 0px;
+    margin: 0px;
+}
+
+section{
+    margin-top: 90px;
+}
+
+
+.header{
+    height: 700px;
+    background: url(../images/header.jpg) no-repeat center top / cover;
+}
+
+.header a{
+    color: white;
+    display: block;
+}
+
+.background{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.navbar{
+    padding: 0px;;
+}
+
+.navbar-brand{
+    padding: 0px;
+    margin-right: 70px;
+}
+
+.navbar-nav li{
+    padding-right: 30px;
+}
+
+.active{
+    border-bottom: solid 1px white;
+    padding-bottom: 3px;
+}
+
+
+.menu{
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu li a{
+    text-decoration: none;
+    margin-right: 47px;
+}
+
+.btn{
+    border-radius: 16px;
+    padding-right: 35px;
+    padding-left: 35px;
+}
+
+.title{
+    margin-top: 250px;
+    margin-left: 90px;
+    color: white;
+}
+
+.title h1{
+    font-size: 56px;
+}
+
+.block_to_link h2{
+    display: inline;
+    margin-right: 30px;
+}
+
+.block_to_link{
+    margin-bottom: 10px;
+}
+
+.image:hover{
+    transform: scale(1.2);
+    transition: transform 0.5s;
+}
+
+.all_objects{
+    font-size: 18px;
+}
+
+.card-text{
+    font-size: 18px;
+}
+
+.footer{
+    margin-top: 90px;
+    background-color: #1C1C1C;
+    color: white;
+    font-size: 24px;
+    padding-top: 14px;
+}
+
+.footer a{
+    display: block;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    margin-top: 40px;
+}
+
+.footer a:hover{
+    text-decoration: underline;
+}
+
+.footer p{
+    text-align: center;
+    margin-top: 100px;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 16px;
+}
