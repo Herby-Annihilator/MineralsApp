@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MineralsApp.DataAccessLayer.Repositories.Interfaces
 {
-    public interface IRepository<T> where T : IEntity, new()
+    public interface IRepository<T> where T : class, IEntity, new()
     {
         T Get(int id);
         IEnumerable<T> GetAll();

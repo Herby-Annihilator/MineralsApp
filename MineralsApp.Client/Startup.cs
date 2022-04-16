@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -26,9 +27,9 @@ namespace MineralsApp.Client
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddTransient<MySqlDbContext>();
+            services.AddTransient<DbContext ,MySqlDbContext>();
 
-            services.AddScoped(typeof(IRepository<>), typeof(DefaultRepository<>));
+            services.AddTransient(typeof(IRepository<>), typeof(DefaultRepository<>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

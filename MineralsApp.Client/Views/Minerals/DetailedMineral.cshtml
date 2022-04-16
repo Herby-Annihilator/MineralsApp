@@ -1,9 +1,11 @@
-﻿@*
+﻿@using MineralsApp.DataAccessLayer.Entities
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
     Layout = null;
 }
+@model MineralsApp.Client.ViewModels.DetailedMineralViewModel;
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -56,7 +58,7 @@
                       </ol>
                 </div>
                 <div class="col-lg-6">
-                    <h1>Наименование минерала</h1>
+                    <h1>@Model.MineralName</h1>
                 </div>
             </div>
         </div>
@@ -69,10 +71,9 @@
                     <img src="../images/main_mineral.png" class="image" alt="Минерал">
                 </div>
                 <div class="col-lg-7">
-                    <h2>Наименование минерала</h2>
+                    <h2>@Model.MineralName</h2>
                     <p class="mineral_text">
-                        Горный хрусталь-разновидность кварца. Кварц представляет собой химическое соединение, состоящее из диоксида кремния (SiO2 ). Это самый распространенный минерал, обнаруженный на поверхности Земли, и его уникальные свойства делают его одним из самых полезных природных веществ. 
-                        Минералы подразделяют на имеющие кристаллическую структуру, аморфные и минералы, имеющие внешнюю форму кристаллов, но находящиеся в аморфном состоянии (метамиктные минералы). Горная порода может состоять из нескольких породообразующих минералов разного вида (полиминеральная порода), или из единственного породообразующего минерала (мономинеральная порода). В литературе применяется также словосочетание «минеральный материал».
+                        @Model.MineralDescription
                     </p>
                 </div>
             </div>
@@ -89,34 +90,17 @@
             </div>
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="card">
-                        <img src="../images/user_icon.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h3 class="card-title">Фамилия Имя Отчество</h3>
-                            <p class="card-text">Готовые примеры и крутые идеи визитных карточек для любой профессии и сферы бизнеса Советы экспертов по оформлению визиток.</p>
-                            <a href="#" class="btn btn-primary stretched-link">Подробнее</a>
+                    @foreach(Researcher researcher in Model.Researchers)
+                    {
+                        <div class="card">
+                            <img src="../images/user_icon.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h3 class="card-title">@researcher.FirstName @researcher.LastName @researcher.Patronymic?</h3>
+                                <p class="card-text">@researcher.FirstName</p>
+                                <a href="#" class="btn btn-primary stretched-link">Подробнее</a>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="card">
-                        <img src="../images/user_icon.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h3 class="card-title">Фамилия Имя Отчество</h3>
-                            <p class="card-text">Готовые примеры и крутые идеи визитных карточек для любой профессии и сферы бизнеса Советы экспертов по оформлению визиток.</p>
-                            <a href="#" class="btn btn-primary stretched-link">Подробнее</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="card">
-                        <img src="../images/user_icon.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h3 class="card-title">Фамилия Имя Отчество</h3>
-                            <p class="card-text">Готовые примеры и крутые идеи визитных карточек для любой профессии и сферы бизнеса Советы экспертов по оформлению визиток.</p>
-                            <a href="#" class="btn btn-primary stretched-link">Подробнее</a>
-                        </div>
-                    </div>
+                    } 
                 </div>
             </div>
             <hr class="line_style">
@@ -130,55 +114,27 @@
                     <h2>Описан в публикациях</h2>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="../images/publish_2.jpeg" class="img-fluid rounded-start" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h2 class="card-title">Публикация</h2>
-                                    <p class="card-text">Американская транснациональная корпорация в составе холдинга Alphabet, инвестирующая в интернет-поиск, облачные вычисления </p>
-                                    <a href="#" class="stretched-link">18.02.2022</a>
+            
+            <div class="row">     
+                @foreach(Publication publication in Model.LimitedPublications())
+                {
+                    <div class="col-lg-4">
+                        <div class="card mb-3" style="max-width: 540px;">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="../images/publish_2.jpeg" class="img-fluid rounded-start" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h2 class="card-title">@publication.Name</h2>
+                                        <p class="card-text">@publication.Name (еще описание надо бы в базу добавить)</p>
+                                        <a href="#" class="stretched-link">@publication.CreationDate</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="../images/publish_2.jpeg" class="img-fluid rounded-start" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h2 class="card-title">Публикация</h2>
-                                    <p class="card-text">Американская транснациональная корпорация в составе холдинга Alphabet, инвестирующая в интернет-поиск, облачные вычисления </p>
-                                    <a href="#" class="stretched-link">18.02.2022</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="../images/publish_2.jpeg" class="img-fluid rounded-start" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h2 class="card-title">Публикация</h2>
-                                    <p class="card-text">Американская транснациональная корпорация в составе холдинга Alphabet, инвестирующая в интернет-поиск, облачные вычисления </p>
-                                    <a href="#" class="stretched-link">18.02.2022</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                }        
             </div>
             <hr class="line_style">
         </div>
