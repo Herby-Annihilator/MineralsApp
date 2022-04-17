@@ -14,11 +14,11 @@ namespace MineralsApp.Client.ViewModels
             _mineral = mineral;
             _mineralRepository = repository;
         }
-
+        public int MineralId { get => _mineral.Id; }
         public override string Name { get => _mineral.Name; set => _mineral.Name = value; }
         public override string Description { get => _mineral.Description; set => _mineral.Description = value; }
         public override string PathToImage { get => _mineral.PathToImage; set => _mineral.PathToImage = value; }
-
+        public string Publications { get; set; }
         public override string Fields
         {
             get => CollectionToString(GetFields(_mineral.FieldHasMinerals));

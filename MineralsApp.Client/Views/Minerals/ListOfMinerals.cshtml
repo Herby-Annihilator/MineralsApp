@@ -86,8 +86,10 @@
                                         <img src="~/images/view.svg" width="50" height="50" alt="">
                                     </a>                                    
                                 </button>
-                                <button class="btn_edit" data-bs-toggle="modal" data-bs-target="#editMineral">
-                                    <img src="~/images/edit.svg" width="50" height="50" alt="">
+                                <button class="btn_edit">
+                                    <a asp-controller="Minerals" asp-action="edit" asp-route-id=@mineral.Id>
+                                        <img src="~/images/edit.svg" width="50" height="50" alt="">
+                                    </a>                                    
                                 </button>
                                 <button class="btn_delete">
                                     <img src="~/images/delete.svg" width="50" height="50" alt="">
@@ -102,7 +104,7 @@
     </section>
 
     <!--Модальное окно-->
-    <div class="modal fade" tabindex="-1" id="editMineral" aria-labelledby="exampleModalLabel" aria-hidden="true">
+@*    <div class="modal fade" tabindex="-1" id="editMineral" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -153,7 +155,7 @@
                 </div>
           </div>
         </div>
-    </div>
+    </div>*@
 
     <footer class="footer">
         <div class="container">
