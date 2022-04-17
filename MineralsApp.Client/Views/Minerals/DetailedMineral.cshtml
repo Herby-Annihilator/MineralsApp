@@ -13,8 +13,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/minerals.css">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/minerals.css">
     <title>Минералы</title>
 </head>
 <body>
@@ -22,7 +22,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark background">
             <div class="container">
                 <a class="navbar-brand" href="#">
-                    <img src="../images/photo_3.jpg" width="90" height="100" alt="logo">
+                    <img src="~/images/photo_3.jpg" width="90" height="100" alt="logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -30,10 +30,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="../html/index.html">Главная</a>
+                            <a class="nav-link" href="~/html/index.html">Главная</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="../html/minerals.html">Минералы</a>
+                            <a class="nav-link active" href="~/html/minerals.html">Минералы</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Исследователи</a>
@@ -68,7 +68,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-5">
-                    <img src="../images/main_mineral.png" class="image" alt="Минерал">
+                    <img src="~/images/main_mineral.png" class="image" alt="Минерал">
                 </div>
                 <div class="col-lg-7">
                     <h2>@Model.MineralName</h2>
@@ -89,19 +89,19 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4">
-                    @foreach(Researcher researcher in Model.Researchers)
+                @foreach(Researcher researcher in Model.Researchers)
                     {
-                        <div class="card">
-                            <img src="../images/user_icon.png" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h3 class="card-title">@researcher.FirstName @researcher.LastName @researcher.Patronymic?</h3>
-                                <p class="card-text">@researcher.FirstName</p>
-                                <a href="#" class="btn btn-primary stretched-link">Подробнее</a>
+                        <div class="col-lg-4">
+                            <div class="card">
+                                <img src="~/images/user_icon.png" class="card-img-top" alt="~.">
+                                <div class="card-body">
+                                    <h3 class="card-title">@researcher.FirstName @researcher.LastName @researcher.Patronymic</h3>
+                                    <p class="card-text">@researcher.FirstName</p>
+                                    <a href="#" class="btn btn-primary stretched-link">Подробнее</a>
+                                </div>
                             </div>
                         </div>
                     } 
-                </div>
             </div>
             <hr class="line_style">
         </div>
@@ -122,7 +122,7 @@
                         <div class="card mb-3" style="max-width: 540px;">
                             <div class="row g-0">
                                 <div class="col-md-4">
-                                    <img src="../images/publish_2.jpeg" class="img-fluid rounded-start" alt="...">
+                                    <img src="~/images/publish_2.jpeg" class="img-fluid rounded-start" alt="~.">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
@@ -149,16 +149,16 @@
             </div>
             <div class="row">
                 <div class="col-lg-3">
-                    <img src="../images/mineral_3.png" class="image" alt="Миенрал 1">
+                    <img src="~/images/mineral_3.png" class="image" alt="Миенрал 1">
                 </div>
                 <div class="col-lg-3">
-                    <img src="../images/mineral_2.png" class="image" alt="Миенрал 1">
+                    <img src="~/images/mineral_2.png" class="image" alt="Миенрал 1">
                 </div>
                 <div class="col-lg-3">
-                    <img src="../images/mineral.png" class="image" alt="Миенрал 1">
+                    <img src="~/images/mineral.png" class="image" alt="Миенрал 1">
                 </div>
                 <div class="col-lg-3">
-                    <img src="../images/mineral_2.png" class="image" alt="Миенрал 1">
+                    <img src="~/images/mineral_2.png" class="image" alt="Миенрал 1">
                 </div>
             </div>
             <div class="row">
@@ -173,8 +173,8 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <a href="../html/index.html">Главная</a>
-                    <a href="../html/minerals.html">Минералы</a>
+                    <a href="~/html/index.html">Главная</a>
+                    <a href="~/html/minerals.html">Минералы</a>
                     <a href="#">Исследователи</a>
                 </div>
                 <div class="col">
@@ -188,7 +188,7 @@
                     <a href="#">Нашли ошибку?</a>
                 </div>
                 <div class="col">
-                    <a href="../html/admin.html">Войти</a>
+                    <a href="~/html/admin.html">Войти</a>
                 </div>
             </div>
             <div class="row">
@@ -199,6 +199,6 @@
         </div>
     </footer>
 
-    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

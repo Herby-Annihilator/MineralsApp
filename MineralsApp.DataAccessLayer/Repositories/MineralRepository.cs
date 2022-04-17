@@ -25,8 +25,18 @@ namespace MineralsApp.DataAccessLayer.Repositories
 
         public Mineral Get(int id)
         {
-            //_dbContext.Minerals.Include()
-            throw new NotImplementedException();
+            //Mineral mineral = _dbContext.Minerals.Single(m => m.Id == id);
+            Mineral result = _dbContext.Minerals
+                .Include(m => m.FieldHasMinerals)
+                .ThenInclude(f => f.Field)
+                .Include(m => m.PublicationDescribesMineral)
+                .ThenInclude(pm => pm.Publication)
+                .ThenInclude(p => p.ResearcherHasPublication)
+                .ThenInclude(rp => rp.Researcher)
+                .Include(m => m.OreHasMinerals)
+                .ThenInclude(om => om.Ore)
+                .Single(m => m.Id == id);
+            return result;
         }
 
         public IEnumerable<Mineral> GetAll()

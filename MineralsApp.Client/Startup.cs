@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MineralsApp.DataAccessLayer.DbContexts;
+using MineralsApp.DataAccessLayer.Entities;
 using MineralsApp.DataAccessLayer.Repositories;
 using MineralsApp.DataAccessLayer.Repositories.Interfaces;
 using System;
@@ -27,9 +28,12 @@ namespace MineralsApp.Client
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddTransient<DbContext ,MySqlDbContext>();
+            //services.AddTransient<DbContext ,MySqlDbContext>();
 
-            services.AddTransient(typeof(IRepository<>), typeof(DefaultRepository<>));
+            //services.AddTransient(typeof(IRepository<>), typeof(DefaultRepository<>));
+
+            services.AddDbContext<MySqlDbContext>();
+            services.AddTransient<IRepository<Mineral>, MineralRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
