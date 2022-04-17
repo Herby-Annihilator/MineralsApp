@@ -25,7 +25,6 @@ namespace MineralsApp.DataAccessLayer.Repositories
 
         public Mineral Get(int id)
         {
-            //Mineral mineral = _dbContext.Minerals.Single(m => m.Id == id);
             Mineral result = _dbContext.Minerals
                 .Include(m => m.FieldHasMinerals)
                 .ThenInclude(f => f.Field)
@@ -41,12 +40,16 @@ namespace MineralsApp.DataAccessLayer.Repositories
 
         public IEnumerable<Mineral> GetAll()
         {
-            throw new NotImplementedException();
+            return _dbContext.Minerals.ToList();
         }
 
         public void Save(Mineral entity)
         {
-            throw new NotImplementedException();
+            if (entity.Id == default || entity.Id < 0)
+                _dbContext.Minerals.Add(entity);
+            else
+                _dbContext.Minerals.Update(entity);
+            _dbContext.SaveChanges();
         }
     }
 }

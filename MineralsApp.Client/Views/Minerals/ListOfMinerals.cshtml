@@ -1,10 +1,11 @@
-﻿@*
+﻿@using MineralsApp.DataAccessLayer.Entities
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
     Layout = null;
 }
-
+@model MineralsApp.Client.ViewModels.ListOfMineralsViewModel;
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -12,8 +13,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/admin.css">
     <title>Админка</title>
 </head>
 <body>
@@ -26,7 +27,7 @@
             <div class="col-lg-7 d-flex justify-content-end align-items-center">
                 <div class="user_zone">
                     <p>Администратор</p>
-                    <img src="../images/user.svg" width="60" height="40" alt="">
+                    <img src="~/images/user.svg" width="60" height="40" alt="">
                 </div>
             </div>
         </div>
@@ -70,101 +71,28 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>Наименование минерала</td>
-                        <td>
-                            <img src="../images/mineral_2.png" width="170" height="100" alt="">
-                        </td>
-                        <td>Опубликовано</td>
-                        <td>19.02.2022</td>
-                        <td>
-                            <button class="btn_view">
-                                <img src="../images/view.svg" width="50" height="50" alt="">
-                            </button>
-                            <button class="btn_edit" data-bs-toggle="modal" data-bs-target="#editMineral">
-                                <img src="../images/edit.svg" width="50" height="50" alt="">
-                            </button>
-                            <button class="btn_delete">
-                                <img src="../images/delete.svg" width="50" height="50" alt="">
-                            </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Наименование минерала</td>
-                        <td>
-                            <img src="../images/mineral_2.png" width="170" height="100" alt="">
-                        </td>
-                        <td>Опубликовано</td>
-                        <td>19.02.2022</td>
-                        <td>
-                            <button class="btn_view">
-                                <img src="../images/view.svg" width="50" height="50" alt="">
-                            </button>
-                            <button class="btn_edit">
-                                <img src="../images/edit.svg" width="50" height="50" alt="">
-                            </button>
-                            <button class="btn_delete">
-                                <img src="../images/delete.svg" width="50" height="50" alt="">
-                            </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Наименование минерала</td>
-                        <td>
-                            <img src="../images/mineral_2.png" width="170" height="100" alt="">
-                        </td>
-                        <td>Опубликовано</td>
-                        <td>19.02.2022</td>
-                        <td>
-                            <button class="btn_view">
-                                <img src="../images/view.svg" width="50" height="50" alt="">
-                            </button>
-                            <button class="btn_edit">
-                                <img src="../images/edit.svg" width="50" height="50" alt="">
-                            </button>
-                            <button class="btn_delete">
-                                <img src="../images/delete.svg" width="50" height="50" alt="">
-                            </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Наименование минерала</td>
-                        <td>
-                            <img src="../images/mineral_2.png" width="170" height="100" alt="">
-                        </td>
-                        <td>Опубликовано</td>
-                        <td>19.02.2022</td>
-                        <td>
-                            <button class="btn_view">
-                                <img src="../images/view.svg" width="50" height="50" alt="">
-                            </button>
-                            <button class="btn_edit">
-                                <img src="../images/edit.svg" width="50" height="50" alt="">
-                            </button>
-                            <button class="btn_delete">
-                                <img src="../images/delete.svg" width="50" height="50" alt="">
-                            </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Наименование минерала</td>
-                        <td>
-                            <img src="../images/mineral_2.png" width="170" height="100" alt="">
-                        </td>
-                        <td>Опубликовано</td>
-                        <td>19.02.2022</td>
-                        <td>
-                            <button class="btn_view">
-                                <img src="../images/view.svg" width="50" height="50" alt="">
-                            </button>
-                            <button class="btn_edit">
-                                <img src="../images/edit.svg" width="50" height="50" alt="">
-                            </button>
-                            <button class="btn_delete">
-                                <img src="../images/delete.svg" width="50" height="50" alt="">
-                            </button>
-                        </td>
-                      </tr>
+                        @foreach(Mineral mineral in Model.Minerals)
+                        {
+                          <tr>
+                            <td>@mineral.Name</td>
+                            <td>
+                                <img src="~/images/mineral_2.png" width="170" height="100" alt="">
+                            </td>
+                            <td>Опубликовано</td>
+                            <td>19.02.2022</td>
+                            <td>
+                                <button class="btn_view">
+                                    <img src="~/images/view.svg" width="50" height="50" alt="">
+                                </button>
+                                <button class="btn_edit" data-bs-toggle="modal" data-bs-target="#editMineral">
+                                    <img src="~/images/edit.svg" width="50" height="50" alt="">
+                                </button>
+                                <button class="btn_delete">
+                                    <img src="~/images/delete.svg" width="50" height="50" alt="">
+                                </button>
+                            </td>
+                          </tr>
+                        }
                     </tbody>
                   </table>
             </div>
@@ -180,10 +108,10 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="..." name="mineral">
+                    <form action="~." name="mineral">
                         <div class="row">
                             <div class="col-4 d-flex flex-column">
-                                <input type="image" name="mineral_image" id="mineral_image" src="../images/main_mineral.png">
+                                <input type="image" name="mineral_image" id="mineral_image" src="~/images/main_mineral.png">
                                 <a href="#">Загрузить изображение</a>
                             </div>
                             <div class="col-8">
@@ -229,8 +157,8 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <a href="../html/index.html">Главная</a>
-                    <a href="../html/minerals.html">Минералы</a>
+                    <a href="~/html/index.html">Главная</a>
+                    <a href="~/html/minerals.html">Минералы</a>
                     <a href="#">Исследователи</a>
                 </div>
                 <div class="col">
@@ -244,7 +172,7 @@
                     <a href="#">Нашли ошибку?</a>
                 </div>
                 <div class="col">
-                    <a href="../html/admin.html">Войти</a>
+                    <a href="~/html/admin.html">Войти</a>
                 </div>
             </div>
             <div class="row">
@@ -255,6 +183,6 @@
         </div>
     </footer>
 
-    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

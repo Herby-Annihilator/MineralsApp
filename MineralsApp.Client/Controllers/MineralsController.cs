@@ -5,6 +5,7 @@ using MineralsApp.DataAccessLayer.DbContexts;
 using MineralsApp.DataAccessLayer.Entities;
 using MineralsApp.DataAccessLayer.Repositories;
 using MineralsApp.DataAccessLayer.Repositories.Interfaces;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace MineralsApp.Client.Controllers
@@ -13,6 +14,7 @@ namespace MineralsApp.Client.Controllers
     {
         private IRepository<Mineral> _mineralRepository;
         private DetailedMineralViewModel _detailedMineralViewModel;
+        private ListOfMineralsViewModel _listOfMineralsViewModel;
         public MineralsController(IRepository<Mineral> mineralRepository)
         {
             _mineralRepository = mineralRepository;
@@ -30,6 +32,16 @@ namespace MineralsApp.Client.Controllers
                 return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
             _detailedMineralViewModel = new DetailedMineralViewModel(mineral);
             return View("DetailedMineral", _detailedMineralViewModel);
+        }
+
+        [HttpGet]
+        public IActionResult List()
+        {
+            IEnumerable<Mineral> minerals = _mineralRepository.GetAll();
+            if (minerals == null)
+                return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            _listOfMineralsViewModel = new ListOfMineralsViewModel(_mineralRepository);
+            return View("ListOfMinerals", _listOfMineralsViewModel);
         }
     }
 }
