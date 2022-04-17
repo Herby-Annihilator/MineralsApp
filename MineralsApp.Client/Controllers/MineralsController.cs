@@ -43,5 +43,22 @@ namespace MineralsApp.Client.Controllers
             _listOfMineralsViewModel = new ListOfMineralsViewModel(_mineralRepository);
             return View("ListOfMinerals", _listOfMineralsViewModel);
         }
+
+        [HttpGet]
+        public IActionResult Edit(Mineral mineral)
+        {
+            if (mineral == null)
+                return NotFound(nameof(mineral));
+            return View("EditMineral", new UpdateMineralViewModel(mineral, _mineralRepository));
+        }
+
+        [HttpPut]
+        public IActionResult Update(Mineral mineral)
+        {
+            if (mineral == null)
+                return NotFound();
+            _mineralRepository.Save(mineral);
+            return View("ListOfMinerals", _listOfMineralsViewModel);
+        }
     }
 }

@@ -29,5 +29,7 @@ namespace MineralsApp.DataAccessLayer.Entities
         public ICollection<PublicationDescribesMineral> PublicationDescribesMineral { get; set; }
 
         public ICollection<ResearcherHasPublication> ResearcherHasPublication { get; set; }
+
+        public override string ToString() => Name;
     }
 }

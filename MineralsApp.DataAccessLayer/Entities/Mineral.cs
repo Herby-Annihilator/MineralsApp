@@ -37,5 +37,7 @@ namespace MineralsApp.DataAccessLayer.Entities
         public ICollection<OreHasMineral> OreHasMinerals { get; set; }
 
         public ICollection<FieldHasMineral> FieldHasMinerals { get; set; }
+
+        public override string ToString() => Name;
     }
 }

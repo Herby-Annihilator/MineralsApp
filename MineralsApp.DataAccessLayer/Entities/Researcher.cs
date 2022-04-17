@@ -32,5 +32,7 @@ namespace MineralsApp.DataAccessLayer.Entities
         public string Patronymic { get; set; }
 
         public ICollection<ResearcherHasPublication> ResearcherHasPublication { get; set; }
+
+        public override string ToString() => $"{FirstName} {LastName} {Patronymic}";
     }
 }
