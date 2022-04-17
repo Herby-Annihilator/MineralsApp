@@ -82,7 +82,9 @@
                             <td>19.02.2022</td>
                             <td>
                                 <button class="btn_view">
-                                    <img src="~/images/view.svg" width="50" height="50" alt="">
+                                    <a asp-controller="Minerals" asp-action="details" asp-route-id=@mineral.Id>
+                                        <img src="~/images/view.svg" width="50" height="50" alt="">
+                                    </a>                                    
                                 </button>
                                 <button class="btn_edit" data-bs-toggle="modal" data-bs-target="#editMineral">
                                     <img src="~/images/edit.svg" width="50" height="50" alt="">
