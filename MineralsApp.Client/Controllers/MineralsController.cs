@@ -87,7 +87,6 @@ namespace MineralsApp.Client.Controllers
                 UpdateMineral(mineral, model);
                 _mineralRepository.Save(mineral);
                 return RedirectToAction("list");
-                //return View("ListOfMinerals", new ListOfMineralsViewModel(_mineralRepository));
             }
             catch (Exception)
             {
@@ -100,7 +99,6 @@ namespace MineralsApp.Client.Controllers
         {
             _mineralRepository.Delete(id);
             return RedirectToAction("list");
-            //return View("ListOfMinerals", new ListOfMineralsViewModel(_mineralRepository));
         }
 
         private void UpdateMineral(Mineral mineral, UpdateMineralViewModel model)

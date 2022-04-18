@@ -28,9 +28,6 @@ namespace MineralsApp.Client
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            //services.AddTransient<DbContext ,MySqlDbContext>();
-
-            //services.AddTransient(typeof(IRepository<>), typeof(DefaultRepository<>));
 
             services.AddDbContext<MySqlDbContext>();
             services.AddTransient<IRepository<Mineral>, MineralRepository>();
