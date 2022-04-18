@@ -20,7 +20,7 @@ namespace MineralsApp.DataAccessLayer.Entities
         [Column("name")]
         [Required]
         [MaxLength(300)]
-        public string Name { get; set; }
+        public string Name { get; set; } = nameof(Ore);
 
         public ICollection<OreHasMineral> OreHasMinerals { get; set; }
     }

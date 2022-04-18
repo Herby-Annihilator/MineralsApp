@@ -20,7 +20,7 @@ namespace MineralsApp.DataAccessLayer.Entities
         [Column("name")]
         [Required]
         [MaxLength(100)]
-        public string Name { get; set; }
+        public string Name { get; set; } = nameof(Name);
 
         [Column("territory_id")]
         [ForeignKey("territory_id")]

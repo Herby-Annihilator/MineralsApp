@@ -20,17 +20,16 @@ namespace MineralsApp.DataAccessLayer.Entities
         [Column("first_name")]
         [Required]
         [MaxLength(100)]
-        public string FirstName { get; set; }
+        public string FirstName { get; set; } = nameof(FirstName);
 
         [Column("last_name")]
         [Required]
         [MaxLength(100)]
-        public string LastName { get; set; }
+        public string LastName { get; set; } = nameof(LastName);
 
         [Column("patronymic")]
         [MaxLength(100)]
-        public string Patronymic { get; set; }
-
+        public string Patronymic { get; set; } = nameof(Patronymic);
         public ICollection<ResearcherHasPublication> ResearcherHasPublication { get; set; }
 
         public override string ToString() => $"{FirstName} {LastName} {Patronymic}";

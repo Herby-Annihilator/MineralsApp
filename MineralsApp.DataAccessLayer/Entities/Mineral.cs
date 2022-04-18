@@ -21,22 +21,23 @@ namespace MineralsApp.DataAccessLayer.Entities
         [Column("name")]
         [Required]
         [MaxLength(100)]
-        public string Name { get; set; }
+        public string Name { get; set; } = "";
 
         [Column("description")]
         [Required]
         [MaxLength(1000)]
-        public string Description { get; set; }
-        
+        public string Description { get; set; } = "";
+
         [Column("path_to_image")]
         [MaxLength(500)]
-        public string PathToImage { get; set; }
+        public string PathToImage { get; set; } = "some/path/to/some/image";
 
-        public ICollection<PublicationDescribesMineral> PublicationDescribesMineral { get; set; }
+        public ICollection<PublicationDescribesMineral> PublicationDescribesMineral { get; set; } 
+            = new HashSet<PublicationDescribesMineral>();
 
-        public ICollection<OreHasMineral> OreHasMinerals { get; set; }
+        public ICollection<OreHasMineral> OreHasMinerals { get; set; } = new HashSet<OreHasMineral>();
 
-        public ICollection<FieldHasMineral> FieldHasMinerals { get; set; }
+        public ICollection<FieldHasMineral> FieldHasMinerals { get; set; } = new HashSet<FieldHasMineral>();
 
         public override string ToString() => Name;
     }

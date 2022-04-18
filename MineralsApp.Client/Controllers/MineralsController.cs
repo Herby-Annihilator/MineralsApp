@@ -5,6 +5,7 @@ using MineralsApp.DataAccessLayer.DbContexts;
 using MineralsApp.DataAccessLayer.Entities;
 using MineralsApp.DataAccessLayer.Repositories;
 using MineralsApp.DataAccessLayer.Repositories.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
@@ -74,13 +75,32 @@ namespace MineralsApp.Client.Controllers
             return View("ListOfMinerals", new ListOfMineralsViewModel(_mineralRepository));
         }
 
-        
+        [HttpGet]
+        public IActionResult Create() => View("Create", new UpdateMineralViewModel());
 
-        [HttpDelete]
+        [HttpPost]
+        public IActionResult Create(UpdateMineralViewModel model)
+        {
+            try
+            {
+                Mineral mineral = new Mineral();
+                UpdateMineral(mineral, model);
+                _mineralRepository.Save(mineral);
+                return RedirectToAction("list");
+                //return View("ListOfMinerals", new ListOfMineralsViewModel(_mineralRepository));
+            }
+            catch (Exception)
+            {
+                return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            }
+        }
+
+        [HttpGet]
         public IActionResult Delete(int id)
         {
             _mineralRepository.Delete(id);
-            return View("ListOfMinerals", new ListOfMineralsViewModel(_mineralRepository));
+            return RedirectToAction("list");
+            //return View("ListOfMinerals", new ListOfMineralsViewModel(_mineralRepository));
         }
 
         private void UpdateMineral(Mineral mineral, UpdateMineralViewModel model)

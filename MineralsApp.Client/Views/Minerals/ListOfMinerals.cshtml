@@ -23,7 +23,11 @@
             <div class="col-lg-3 logo">
                 <h2>Панель администратора</h2>
             </div>
-            <p class="col-lg-2 table_content_name">Минералы</p>
+            <p class="col-lg-2 table_content_name">
+                <a asp-controller=Minerals asp-action=Create>
+                    Минералы
+                </a>
+            </p>
             <div class="col-lg-7 d-flex justify-content-end align-items-center">
                 <div class="user_zone">
                     <p>Администратор</p>
@@ -92,7 +96,9 @@
                                     </a>                                    
                                 </button>
                                 <button class="btn_delete">
-                                    <img src="~/images/delete.svg" width="50" height="50" alt="">
+                                    <a asp-controller="Minerals" asp-action="delete" asp-route-id=@mineral.Id>
+                                        <img src="~/images/delete.svg" width="50" height="50" alt="">
+                                    </a>                                   
                                 </button>
                             </td>
                           </tr>

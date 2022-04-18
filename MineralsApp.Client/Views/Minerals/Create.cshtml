@@ -1,0 +1,63 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+@model MineralsApp.Client.ViewModels.UpdateMineralViewModel;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/admin.css">
+    <title>Редактирование</title>
+</head>
+<body>
+    <form asp-controller="Minerals" asp-action="create" name="mineral" method="post">
+        <div class="row">
+            <div class="col-4 d-flex flex-column">
+                <input type="image" name="mineral_image" id="mineral_image" src="~/images/main_mineral.png">
+                <a href="#">Загрузить изображение</a>
+            </div>
+            <div class="col-8">
+                <div>
+                    <input type="hidden" name="MineralId"/>
+                </div>
+                <div class="form_text_item">
+                    <label for="mineral_name">Наименование минерала</label>
+                    <input type="text" name="Name" id="mineral_name">
+                </div>
+                <div class="form_text_item">
+                    <label for="searchers">Исследователи</label>
+                    <input type="text" name="Researchers" id="searchers">
+                </div>
+                <div class="form_text_item">
+                    <label for="publish">Публикации</label>
+                    <input type="text" name="Publications" id="publish">
+                </div>
+                <div class="form_text_item">
+                    <label for="field">Месторождения</label>
+                    <input type="text" name="Fields" id="field">
+                </div>
+                <div class="form_text_item">
+                    <label for="place">Территории</label>
+                    <input type="text" name="Territories" id="place">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 d-flex flex-column">
+                <label for="min_description">Описание</label>
+                <textarea name="Description" id="min_description" cols="30" rows="10" required placeholder="Описание">
+                    
+                </textarea>
+            </div>
+        </div>
+        <input type="submit" value="Сохранить"/>
+    </form>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

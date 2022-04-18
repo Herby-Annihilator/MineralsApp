@@ -20,11 +20,11 @@ namespace MineralsApp.DataAccessLayer.Entities
         [Column("name")]
         [Required]
         [MaxLength(100)]
-        public string Name { get; set; }
+        public string Name { get; set; } = "";
 
         [Column("creation_date")]
         [Required]
-        public DateTime CreationDate { get; set; }
+        public DateTime CreationDate { get; set; } = DateTime.Now;
 
         public ICollection<PublicationDescribesMineral> PublicationDescribesMineral { get; set; }
 

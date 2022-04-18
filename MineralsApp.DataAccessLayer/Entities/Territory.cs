@@ -25,7 +25,7 @@ namespace MineralsApp.DataAccessLayer.Entities
         [ForeignKey("country_id")]
         [Column("country_id")]
         public int? CountryId { get; set; }
-        public Country? Country { get; set; }
+        public Country Country { get; set; }
 
         public ICollection<Field> Fields { get; set; }
     }
