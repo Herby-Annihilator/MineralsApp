@@ -8,6 +8,7 @@ using MineralsApp.DataAccessLayer.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Text;
 
 namespace MineralsApp.Client.Controllers
@@ -79,14 +80,16 @@ namespace MineralsApp.Client.Controllers
         public IActionResult Create() => View("Create", new UpdateMineralViewModel());
 
         [HttpPost]
-        public IActionResult Create(UpdateMineralViewModel model)
+        public IActionResult Create([FromBody] UpdateMineralViewModel model)
         {
             try
             {
                 Mineral mineral = new Mineral();
                 UpdateMineral(mineral, model);
                 _mineralRepository.Save(mineral);
-                return RedirectToAction("list");
+                IEnumerable<Mineral> minerals = _mineralRepository.GetAll();
+                mineral = minerals.Last();
+                return Json(new UpdateMineralViewModel() { MineralId = mineral.Id, Name = mineral.Name});
             }
             catch (Exception)
             {
@@ -95,10 +98,10 @@ namespace MineralsApp.Client.Controllers
         }
 
         [HttpGet]
-        public IActionResult Delete(int id)
+        public void Delete(int id)
         {
             _mineralRepository.Delete(id);
-            return RedirectToAction("list");
+            //return RedirectToAction("list");
         }
 
         private void UpdateMineral(Mineral mineral, UpdateMineralViewModel model)

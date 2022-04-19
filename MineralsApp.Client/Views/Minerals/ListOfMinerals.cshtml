@@ -24,7 +24,7 @@
                 <h2>Панель администратора</h2>
             </div>
             <p class="col-lg-2 table_content_name">
-                <a asp-controller=Minerals asp-action=Create>
+                <a data-bs-toggle="modal" data-bs-target="#createMineral">
                     Минералы
                 </a>
             </p>
@@ -64,7 +64,7 @@
                 </nav>
             </div>
             <div class="col-lg-9">
-                <table class="table custom_background">
+                <table class="table custom_background" id="mineralsTable">
                     <thead>
                       <tr>
                         <th scope="col">Имя</th>
@@ -86,19 +86,17 @@
                             <td>19.02.2022</td>
                             <td>
                                 <button class="btn_view">
-                                    <a asp-controller="Minerals" asp-action="details" asp-route-id=@mineral.Id>
-                                        <img src="~/images/view.svg" width="50" height="50" alt="">
-                                    </a>                                    
+                                    <a asp-controller="Minerals" asp-action="details" asp-route-id="@mineral.Id">
+                                        <img src="~/images/view.svg" width="50" height="50" alt="">  
+                                    </a>                                                                     
                                 </button>
                                 <button class="btn_edit">
-                                    <a asp-controller="Minerals" asp-action="edit" asp-route-id=@mineral.Id>
-                                        <img src="~/images/edit.svg" width="50" height="50" alt="">
-                                    </a>                                    
+                                    <a asp-controller="Minerals" asp-action="edit" asp-route-id="@mineral.Id">
+                                        <img src="~/images/edit.svg" width="50" height="50" alt="">  
+                                    </a>                                                                    
                                 </button>
-                                <button class="btn_delete">
-                                    <a asp-controller="Minerals" asp-action="delete" asp-route-id=@mineral.Id>
-                                        <img src="~/images/delete.svg" width="50" height="50" alt="">
-                                    </a>                                   
+                                <button class="btn_delete" id="@mineral.Id">
+                                    <img src="~/images/delete.svg" width="50" height="50" alt="">                                  
                                 </button>
                             </td>
                           </tr>
@@ -110,7 +108,7 @@
     </section>
 
     <!--Модальное окно-->
-@*    <div class="modal fade" tabindex="-1" id="editMineral" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" tabindex="-1" id="createMineral" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -118,7 +116,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="~." name="mineral">
+                    <form action="" name="mineral">
                         <div class="row">
                             <div class="col-4 d-flex flex-column">
                                 <input type="image" name="mineral_image" id="mineral_image" src="~/images/main_mineral.png">
@@ -126,8 +124,8 @@
                             </div>
                             <div class="col-8">
                                 <div class="form_text_item">
-                                    <label for="mineral_name">Наименование минерала</label>
-                                    <input type="text" name="mineral_name" id="mineral_name">
+                                    <label for="mineralName">Наименование минерала</label>
+                                    <input type="text" name="mineralName" id="mineralName">
                                 </div>
                                 <div class="form_text_item">
                                     <label for="searchers">Исследователи</label>
@@ -142,26 +140,26 @@
                                     <input type="text" name="field" id="field">
                                 </div>
                                 <div class="form_text_item">
-                                    <label for="place">Территории</label>
-                                    <input type="text" name="place" id="place">
+                                    <label for="territory">Территории</label>
+                                    <input type="text" name="territory" id="territory">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12 d-flex flex-column">
-                                <label for="min_description">Описание</label>
-                                <textarea name="description" id="min_description" cols="30" rows="10" required placeholder="Описание"></textarea>
+                                <label for="description">Описание</label>
+                                <textarea name="description" id="description" cols="30" rows="10" required placeholder="Описание"></textarea>
                             </div>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
-                    <button type="button" class="btn btn-primary">ОК</button>
+                    <button type="submit" id="createMineralBtn" class="btn btn-primary">ОК</button>
                 </div>
           </div>
         </div>
-    </div>*@
+    </div>
 
     <footer class="footer">
         <div class="container">
