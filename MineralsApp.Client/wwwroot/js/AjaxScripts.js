@@ -32,21 +32,27 @@
                             <td>19.02.2022</td>
                             <td>
                                 <button class="btn_view">
-                                    <a asp-controller="Minerals" asp-action="details" asp-route-id="${response.id}">
-                                        <img src="~/images/view.svg" width="50" height="50" alt="">
+                                    <a href="Minerals/details/${response.id}">
                                     </a>
                                 </button>
                                 <button class="btn_edit">
-                                    <a asp-controller="Minerals" asp-action="edit" asp-route-id="${response.id}">
-                                        <img src="~/images/edit.svg" width="50" height="50" alt="">
+                                    <a href="Minerals/edit/${response.id}">
                                     </a>
                                 </button>
                                 <button class="btn_delete" id="${response.id}">
-                                    <img src="~/images/delete.svg" width="50" height="50" alt="">
                                 </button>
                             </td>
                           </tr>`
         );
+    });
+});
+
+$(document).on('click', '.readMore', function (e) {
+    e.preventDefault();
+    var id = $(this).attr("id");
+    $("#mineralDescription").load("MineralDescription/" + id, function (response) {
+        if (response.length > 0)
+            $("#describeMineral").modal('show');
     });
 });
 

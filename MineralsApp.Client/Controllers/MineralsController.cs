@@ -35,6 +35,16 @@ namespace MineralsApp.Client.Controllers
         }
 
         [HttpGet]
+        public IActionResult MineralDescription(int id)
+        {
+            Mineral mineral = _mineralRepository.Get(id);
+            if (mineral == null)
+                return Content($"<p>Минерал с id={id} не найден в базе</p>");
+            
+            return Content($"<p>{mineral.Description}</p>");
+        }
+
+        [HttpGet]
         public IActionResult List()
         {
             IEnumerable<Mineral> minerals = _mineralRepository.GetAll();
@@ -96,6 +106,7 @@ namespace MineralsApp.Client.Controllers
                 return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
             }
         }
+
 
         [HttpGet]
         public void Delete(int id)
