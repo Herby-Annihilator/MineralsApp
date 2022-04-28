@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MineralsApp.DataAccessLayer.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,8 @@ using System.Threading.Tasks;
 
 namespace MineralsApp.DataAccessLayer.DbContexts
 {
-    public class MySqlDbContext : DbContext
+    public class MySqlDbContext : IdentityDbContext
     {
-        private string _connectionString;
         public DbSet<Country> Countries { get; set; }
 
         public DbSet<Territory> Territories { get; set; }
@@ -28,12 +28,13 @@ namespace MineralsApp.DataAccessLayer.DbContexts
         public MySqlDbContext()
         {
             //_connectionString = connectionString;
-            //Database.EnsureCreated();
+            Database.EnsureDeleted();
+            Database.EnsureCreated();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySql("server=192.168.1.133;port=3306;user=dvrukin;password=qwerty123@;database=minerals;",
+            optionsBuilder.UseMySql("server=192.168.1.133;port=3306;user=dvrukin;password=qwerty123@;database=minerals_1;",
                 new MySqlServerVersion(new Version(8, 0, 28)));
         }
 
@@ -43,8 +44,11 @@ namespace MineralsApp.DataAccessLayer.DbContexts
             ManyToManyBetweenResearcherAndPublication(modelBuilder);
             ManyToManyBetweenOreAndMineral(modelBuilder);
             ManyToManyBetweenFieldAndMineral(modelBuilder);
+            ConfigureDefaultData(modelBuilder);
+            base.OnModelCreating(modelBuilder);
         }
 
+        #region Relations
         protected void ManyToManyBetweenMineralAndPublication(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<PublicationDescribesMineral>().HasKey(k => new { k.MineralId, k.PublicationId });
@@ -103,6 +107,12 @@ namespace MineralsApp.DataAccessLayer.DbContexts
                 .HasOne(fm => fm.Field)
                 .WithMany(f => f.FieldHasMinerals)
                 .HasForeignKey(fm => fm.FieldId);
+        } 
+        #endregion
+
+        protected void ConfigureDefaultData(ModelBuilder modelBuilder)
+        {
+
         }
     }
 }
