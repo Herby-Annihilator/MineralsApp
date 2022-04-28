@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 
 namespace MineralsApp.DataAccessLayer.DbContexts
 {
@@ -112,7 +113,58 @@ namespace MineralsApp.DataAccessLayer.DbContexts
 
         protected void ConfigureDefaultData(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<IdentityRole>()
+                .HasData(
+                    new IdentityRole()
+                    {
+                        Id = "1",
+                        Name = "admin",
+                        NormalizedName = "ADMIN"
+                    },
+                    new IdentityRole()
+                    {
+                        Name = "user",
+                        NormalizedName = "USER",
+                        Id = "2"
+                    }
+                );
+            modelBuilder.Entity<IdentityUser>()
+                .HasData(
+                    new IdentityUser()
+                    {
+                        Id = "1",
+                        UserName = "admin",
+                        NormalizedUserName = "ADMIN",
+                        Email = "admin@yandex.ru",
+                        EmailConfirmed = true,
+                        PasswordHash = new PasswordHasher<IdentityUser>().HashPassword(null, "sosi_jopu"),
+                        SecurityStamp = String.Empty
+                    },
+                    new IdentityUser()
+                    {
+                        Id = "2",
+                        UserName = "user",
+                        NormalizedUserName = "USER",
+                        Email = "user@yandex.ru",
+                        EmailConfirmed = true,
+                        PasswordHash = new PasswordHasher<IdentityUser>().HashPassword(null, "sosi_jopu"),
+                        SecurityStamp = String.Empty
+                    }
+                );
 
+            modelBuilder.Entity<IdentityUserRole<string>>()
+                .HasData(
+                    new IdentityUserRole<string>()
+                    {
+                        RoleId = "1",
+                        UserId = "1",
+                    },
+                    new IdentityUserRole<string>()
+                    {
+                        RoleId = "2",
+                        UserId = "2",
+                    }
+                );
         }
     }
 }
